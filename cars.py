@@ -1,8 +1,9 @@
 ##################################
-#     Author: Melsov Isa         #
+#   Author: Orozaliev Isa i Isa  #
 ##################################
 
 import os
+from pathlib import Path
 
 # Function to create a new folder or select an existing folder for car brand
 def select_or_create_folder():
@@ -65,6 +66,22 @@ def save_car_info(folder_name, car_id, car_info):
     with open(file_path, "w") as car_file:
         car_file.write(car_info)
     print(f"\nCar information saved in '{file_path}'\n")
+    
+def find_and_change_folder_name():
+    folders = [f for f in os.listdir() if os.path.isdir(f)]
+    print("\nAvailable Car Brand Folders:")
+    for i, folder in enumerate(folders, start=1):
+        print(f"{i}. {folder}")
+    actual_folder = input("Enter the name of the folder you want to change: ")
+    if actual_folder in folders:
+        new_folder_name = input("Enter the new folder name: ")
+        if new_folder_name not in folders:
+            Path(actual_folder).rename(new_folder_name)
+            print(f"Folder '{actual_folder}' has been renamed to '{new_folder_name}'")
+        else:
+            print(f"Error: A folder with the name '{new_folder_name}' already exists.")
+    else:
+        print(f"Error: The folder '{actual_folder}' does not exist.")
 
 # Function to view existing folders and car files within them
 def view_cars():
@@ -113,6 +130,7 @@ def main():
         print("1. Add a new car")
         print("2. View existing cars")
         print("3. Exit")
+        print("4. Change folder or file name")
         choice = input("Enter your choice: ")
         
         if choice == '1':
@@ -124,7 +142,7 @@ def main():
             car_model = input("Enter the Car Model: ")
             car_year = input("Enter the Year of Manufacture: ")
             car_price = input("Enter the Price of the Car: ")
-            car_color = input("Enter cars color")
+            car_color = input("Enter cars color: ")
 
             car_info = f"Car ID: {car_id}\nCar Model: {car_model}\nYear of Manufacture: {car_year}\nPrice: {car_price}\nColor: {car_color}\n"
             save_car_info(folder_name, car_id, car_info)
@@ -135,7 +153,8 @@ def main():
         elif choice == '3':
             print("\nExiting the application. Goodbye!")
             break
-        
+        elif choice == '4':
+            find_and_change_folder_name()
         else:
             print("Invalid choice. Please enter a number from the menu options.")
 
