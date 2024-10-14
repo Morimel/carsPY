@@ -1,5 +1,0 @@
-Car ID: gerge
-Car Model: vdn
-Year of Manufacture: sdf
-Price: tr
-Color: hgn
