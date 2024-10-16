@@ -1,0 +1,5 @@
+Car ID: X6-001
+Car Model: X6
+Year of Manufacture: 2024
+Price: 80000
+Color: Gray
