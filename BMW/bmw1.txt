@@ -1,5 +1,0 @@
-Car ID: bmw1
-Car Model: X&
-Year of Manufacture: 2020
-Price: 80000
-Color: black

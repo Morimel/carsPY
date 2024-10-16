@@ -1,5 +1,0 @@
-Car ID: kia1
-Car Model: KIA-K7
-Year of Manufacture: 2023
-Price: 20000
-Color: red
